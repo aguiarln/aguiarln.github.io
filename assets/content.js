@@ -32,6 +32,10 @@ const SKILL_ICONS = {
   ],
 };
 
+// Rótulos dos números: "|" marca onde a linha deve quebrar (cada trecho fica inteiro).
+// Anos completos em O&G desde nov/2021 (atualiza sozinho)
+const YEARS_OG = Math.floor((Date.now() - Date.UTC(2021, 10, 1)) / (365.2425 * 864e5));
+
 const REPOS = {
   dw: "https://github.com/aguiarln/anp-oil-gas-dw",
   fea: "https://github.com/aguiarln/drillstring-fea",
@@ -51,7 +55,7 @@ window.SITE = {
       nav: { about: "sobre", skills: "skills", exp: "experiência", projects: "projetos", edu: "formação" },
       ctaProjects: "Ver projetos", ctaCv: "Baixar CV", now: "Agora", progress: "Progresso",
       photoAlt: "Foto de Luiz Aguiar Neto", welcome: "seja bem-vindo!", current: "atual",
-      more: "mostrar mais", less: "mostrar menos", repo: "ver no GitHub", menuOpen: "Abrir menu", menuClose: "Fechar menu",
+      more: "mostrar mais", less: "mostrar menos", repo: "ver no GitHub", menuOpen: "Abrir menu", menuClose: "Fechar menu", toLight: "Ativar tema claro", toDark: "Ativar tema escuro",
     },
     hero: {
       name: "Luiz Aguiar Neto",
@@ -60,9 +64,9 @@ window.SITE = {
       now: ["TechnipFMC · Búzios 6 e HISEP® Mero 3", "BI Master PUC-Rio · fase 2 de 4"],
     },
     stats: [
-      { value: 5, label: "grandes EPCIs submarinos em que trabalhei" },
-      { value: 2021, label: "em O&G desde", plain: true },
-      { value: 6, label: "países nas equipes com que trabalho" },
+      { value: 5, label: "grandes EPCIs submarinos|em que trabalhei" },
+      { value: YEARS_OG, label: "anos em projetos submarinos|de óleo e gás" },
+      { value: 6, label: "países nas equipes internacionais|dos meus projetos" },
       { value: 1, suffix: "/4", label: "fases do BI Master concluídas" },
     ],
     skills: {
@@ -154,7 +158,7 @@ window.SITE = {
       nav: { about: "about", skills: "skills", exp: "experience", projects: "projects", edu: "education" },
       ctaProjects: "See projects", ctaCv: "Download CV", now: "Now", progress: "Progress",
       photoAlt: "Photo of Luiz Aguiar Neto", welcome: "welcome!", current: "current",
-      more: "show more", less: "show less", repo: "view on GitHub", menuOpen: "Open menu", menuClose: "Close menu",
+      more: "show more", less: "show less", repo: "view on GitHub", menuOpen: "Open menu", menuClose: "Close menu", toLight: "Switch to light theme", toDark: "Switch to dark theme",
     },
     hero: {
       name: "Luiz Aguiar Neto",
@@ -163,9 +167,9 @@ window.SITE = {
       now: ["TechnipFMC · Búzios 6 and HISEP® Mero 3", "BI Master PUC-Rio · phase 2 of 4"],
     },
     stats: [
-      { value: 5, label: "major subsea EPCIs I've worked on" },
-      { value: 2021, label: "in O&G since", plain: true },
-      { value: 6, label: "countries on the teams I work with" },
+      { value: 5, label: "major subsea EPCIs|I've worked on" },
+      { value: YEARS_OG, label: "years on subsea|oil &amp; gas projects" },
+      { value: 6, label: "countries across my|international project teams" },
       { value: 1, suffix: "/4", label: "BI Master phases completed" },
     ],
     skills: {

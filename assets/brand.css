@@ -21,6 +21,7 @@
   --color-navy-50:  #F1F5FB;
 
   /* ---- Complementar (âmbar ≈ 35°) ---- */
+  --color-amber-700: #975817;   /* âmbar para TEXTO em fundo claro (5.64:1 no branco) */
   --color-amber-600: #D9822B;
   --color-amber-500: #F2A541;
   --color-amber-300: #F8CB8A;
