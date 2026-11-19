@@ -51,7 +51,7 @@ window.SITE = {
       nav: { about: "sobre", skills: "skills", exp: "experiência", projects: "projetos", edu: "formação" },
       ctaProjects: "Ver projetos", ctaCv: "Baixar CV", now: "Agora", progress: "Progresso",
       photoAlt: "Foto de Luiz Aguiar Neto", welcome: "seja bem-vindo!", current: "atual",
-      more: "mostrar mais", less: "mostrar menos", repo: "ver no GitHub",
+      more: "mostrar mais", less: "mostrar menos", repo: "ver no GitHub", menuOpen: "Abrir menu", menuClose: "Fechar menu",
     },
     hero: {
       name: "Luiz Aguiar Neto",
@@ -154,7 +154,7 @@ window.SITE = {
       nav: { about: "about", skills: "skills", exp: "experience", projects: "projects", edu: "education" },
       ctaProjects: "See projects", ctaCv: "Download CV", now: "Now", progress: "Progress",
       photoAlt: "Photo of Luiz Aguiar Neto", welcome: "welcome!", current: "current",
-      more: "show more", less: "show less", repo: "view on GitHub",
+      more: "show more", less: "show less", repo: "view on GitHub", menuOpen: "Open menu", menuClose: "Close menu",
     },
     hero: {
       name: "Luiz Aguiar Neto",
