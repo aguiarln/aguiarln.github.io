@@ -1,0 +1,116 @@
+/* ==========================================================================
+   brand.css — Luiz Neto · Navy Engineering
+   Fonte da verdade: DESIGN.md (manter nomes sincronizados)
+   Uso: currículo (HTML/PDF), site GitHub Pages e referência p/ LinkedIn
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---- Navy scale (hue ≈ 215°) ---- */
+  --color-navy-950: #050D1A;
+  --color-navy-900: #0A1A33;
+  --color-navy-800: #0F2547;
+  --color-navy-700: #16335F;
+  --color-navy-600: #1F4480;
+  --color-navy-500: #2E5AA3;
+  --color-navy-400: #5079BD;
+  --color-navy-300: #84A2D4;
+  --color-navy-200: #B9CBE8;
+  --color-navy-100: #DDE6F4;
+  --color-navy-50:  #F1F5FB;
+
+  /* ---- Complementar (âmbar ≈ 35°) ---- */
+  --color-amber-600: #D9822B;
+  --color-amber-500: #F2A541;
+  --color-amber-300: #F8CB8A;
+
+  /* ---- Análogo tech (ciano) ---- */
+  --color-cyan-500: #22B8D9;
+  --color-cyan-400: #4FD1EA;
+
+  /* ---- Neutros ---- */
+  --color-ink:       #0B1220;
+  --color-slate-600: #475569;
+  --color-slate-400: #94A3B8;
+  --color-paper:     #FFFFFF;
+
+  /* ---- Papéis semânticos (tema claro / impressão) ---- */
+  --bg:          var(--color-paper);
+  --bg-subtle:   var(--color-navy-50);
+  --surface:     var(--color-paper);
+  --text:        var(--color-ink);
+  --text-muted:  var(--color-slate-600);
+  --heading:     var(--color-navy-900);
+  --primary:     var(--color-navy-900);
+  --on-primary:  var(--color-paper);
+  --accent:      var(--color-amber-600);   /* âmbar escurecido p/ contraste em fundo branco */
+  --accent-tech: var(--color-cyan-500);
+  --link:        var(--color-navy-600);
+  --border:      var(--color-navy-100);
+
+  /* ---- Tipografia ---- */
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body:    'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+
+  --text-display: 3rem;
+  --text-h1:      2rem;
+  --text-h2:      1.375rem;
+  --text-body:    1rem;
+  --text-sm:      0.875rem;
+  --text-label:   0.75rem;
+
+  /* ---- Espaço / forma ---- */
+  --space-xs: 4px;  --space-sm: 8px;  --space-md: 16px;
+  --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px;
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 14px; --radius-pill: 999px;
+}
+
+/* Tema escuro (site GitHub Pages) — ativado por data-theme="dark" ou preferência do SO */
+:root[data-theme="dark"] {
+  --bg:          var(--color-navy-950);
+  --bg-subtle:   var(--color-navy-900);
+  --surface:     var(--color-navy-900);
+  --text:        var(--color-navy-100);
+  --text-muted:  var(--color-navy-300);
+  --heading:     var(--color-paper);
+  --primary:     var(--color-navy-800);
+  --accent:      var(--color-amber-500);
+  --accent-tech: var(--color-cyan-400);
+  --link:        var(--color-cyan-400);
+  --border:      var(--color-navy-700);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:          var(--color-navy-950);
+    --bg-subtle:   var(--color-navy-900);
+    --surface:     var(--color-navy-900);
+    --text:        var(--color-navy-100);
+    --text-muted:  var(--color-navy-300);
+    --heading:     var(--color-paper);
+    --primary:     var(--color-navy-800);
+    --accent:      var(--color-amber-500);
+    --accent-tech: var(--color-cyan-400);
+    --link:        var(--color-cyan-400);
+    --border:      var(--color-navy-700);
+  }
+}
+
+/* ---- Utilitários de marca ---- */
+.brand-label      { font: 500 var(--text-label)/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-tech); }
+.brand-section    { font: 700 var(--text-h2)/1.25 var(--font-display); color: var(--heading); border-left: 4px solid var(--accent); padding-left: 10px; }
+.brand-chip       { font: 500 var(--text-label)/1 var(--font-mono); background: var(--color-navy-800); color: var(--color-navy-100); border-radius: var(--radius-pill); padding: 6px 10px; display: inline-block; }
+.brand-btn        { font: 600 var(--text-sm)/1 var(--font-body); background: var(--color-amber-500); color: var(--color-navy-950); border-radius: var(--radius-md); padding: 12px 20px; text-decoration: none; display: inline-block; }
+
+/* ---- LinkedIn (referência) ----
+   Banner: 1584×396 px  · fundo navy-950→navy-900, título Space Grotesk branco,
+           tagline JetBrains Mono em cyan-400, um traço âmbar.
+   Foto:   400×400 px  · fundo navy-800 ou navy-100 liso.
+   Destaques/Featured: 1200×627 px · mesmo esquema do banner.
+*/
+
+@media print {
+  :root { --bg: #fff; --text: var(--color-ink); }
+  a { color: inherit; text-decoration: none; }
+}

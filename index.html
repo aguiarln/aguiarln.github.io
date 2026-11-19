@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luiz Aguiar Neto · Engenheiro de Estruturas & Equipamentos</title>
+<meta name="description" content="Luiz Aguiar Neto: engenheiro de estruturas e equipamentos (TechnipFMC), simulação estrutural (FEA), projetos EPCI submarinos, Python e automação de engenharia.">
+<meta property="og:title" content="Luiz Aguiar Neto · Engenheiro de Estruturas & Equipamentos">
+<meta property="og:description" content="Simulação estrutural (FEA) · Projetos EPCI submarinos · Python & automação de engenharia">
+<meta property="og:image" content="https://aguiarln.github.io/assets/foto.jpg">
+<meta property="og:url" content="https://aguiarln.github.io/">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://aguiarln.github.io/">
+<link rel="stylesheet" href="assets/brand.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+  /* Bento — tema escuro, cartões em grade com brilho que segue o cursor. */
+  :root { --bg: var(--color-navy-950); --card: #0B1830; --line: #17294A; --muted: var(--color-navy-300); --gap: 14px; --bar: 68px; }
+  body { background: var(--bg); color: var(--color-navy-100); font: 400 16px/1.6 var(--font-body); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+  .label { font: 500 12px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--color-cyan-400); }
+
+  /* ---------- Barra superior (fundo sólido: o conteúdo passa por baixo, sem sobrepor cartões) ---------- */
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 20; height: var(--bar); background: var(--bg); border-bottom: 1px solid transparent; transition: border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+  .topbar.scrolled { border-bottom-color: var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+  .topbar .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .mark { font: 700 16px var(--font-display); color: #fff; text-decoration: none; white-space: nowrap; }
+  .topbar nav { position: relative; display: flex; padding: 4px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); }
+  .topbar nav a { position: relative; z-index: 1; padding: 7px 14px; border-radius: 999px; font-size: 14px; color: var(--muted); text-decoration: none; white-space: nowrap; transition: color var(--dur-quick); }
+  .topbar nav a:hover { color: var(--color-navy-100); }
+  .topbar nav a.active { color: #fff; }
+  .topbar nav .pill { position: absolute; top: 4px; bottom: 4px; left: 0; border-radius: 999px; background: var(--color-navy-700); transition: transform var(--dur-base) var(--ease-spring), width var(--dur-base) var(--ease-out); }
+
+  /* ---------- Cartões ---------- */
+  .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
+  .card { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; overflow: hidden; isolation: isolate; }
+  /* Spotlight: brilho radial no fundo e na borda */
+  .card::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity var(--dur-base) var(--ease-out); background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(79, 209, 234, .10), transparent 60%); }
+  .card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; opacity: 0; transition: opacity var(--dur-base) var(--ease-out);
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(242, 165, 65, .7), transparent 60%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+  .card:hover::before, .card:hover::after { opacity: 1; }
+  .c3 { grid-column: span 3; } .c4 { grid-column: span 4; } .c5 { grid-column: span 5; } .c6 { grid-column: span 6; } .c7 { grid-column: span 7; } .c8 { grid-column: span 8; } .c12 { grid-column: span 12; }
+
+  /* ---------- Hero bento ---------- */
+  .hero { padding-top: calc(var(--bar) + 24px); }
+  .photo { padding: 0; min-height: 380px; will-change: transform; }
+  /* inclinação rápida (transform) sem perder o surgimento lento (opacity/filter) */
+  .photo, .proj { transition: opacity var(--dur-slow) var(--ease-out), filter var(--dur-slow) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .photo .glare { position: absolute; inset: 0; background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,.18), transparent 55%); mix-blend-mode: soft-light; pointer-events: none; }
+  .photo .tag { position: absolute; left: 14px; bottom: 14px; display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(5, 13, 26, .78); font: 500 12px var(--font-mono); color: var(--color-navy-100); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #3DDC97; box-shadow: 0 0 0 0 rgba(61,220,151,.6); animation: ping 2s var(--ease-out) infinite; flex: none; }
+  @keyframes ping { 70%, 100% { box-shadow: 0 0 0 8px rgba(61,220,151,0); } }
+  .intro { display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
+  .intro h1 { font: 700 clamp(40px, 5.6vw, 72px)/1 var(--font-display); letter-spacing: -.035em; color: #fff; margin: 10px 0 14px; }
+  .intro .role { font: 500 clamp(16px, 1.6vw, 19px) var(--font-mono); color: var(--color-amber-500); min-height: 1.6em; }
+  .intro p { color: var(--color-navy-200); margin: 0; max-width: 66ch; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 20px; border-radius: 12px; font: 600 15px var(--font-body); text-decoration: none; transition: transform var(--dur-base) var(--ease-spring), background var(--dur-quick), border-color var(--dur-quick), color var(--dur-quick); }
+  .btn svg { width: 16px; height: 16px; fill: currentColor; }
+  .btn-amber { background: var(--color-amber-500); color: var(--color-navy-950); }
+  .btn-amber:hover { background: var(--color-amber-300); }
+  .btn-ghost { border: 1px solid var(--color-navy-600); color: var(--color-navy-100); }
+  .btn-ghost:hover { border-color: var(--color-cyan-400); color: var(--color-cyan-400); }
+  .stat b { display: block; font: 700 clamp(34px, 3.6vw, 46px)/1 var(--font-display); color: #fff; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .stat b small { font-size: .55em; color: var(--muted); }
+  .stat > span { display: block; margin-top: 10px; font-size: 14px; color: var(--muted); }
+  .now ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
+  .now li { display: flex; gap: 10px; align-items: center; font-size: 15px; color: var(--color-navy-100); }
+  .loop { padding: 18px 0; }
+  .loop .label { padding: 0 24px; }
+  .loop .rail { overflow: hidden; margin-top: 14px; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .loop .track { display: flex; gap: 12px; width: max-content; animation: loop 40s linear infinite; }
+  .loop:hover .track { animation-play-state: paused; }
+  @keyframes loop { to { transform: translateX(-50%); } }
+  .loop .chip { display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 14px; background: var(--color-navy-900); border: 1px solid var(--line); font-size: 14px; white-space: nowrap; }
+  .loop .ico { width: 38px; height: 38px; border-radius: 10px; } .loop .ico i { font-size: 24px; } .loop .ico.brand svg { width: 20px; height: 20px; } .loop .ico.brand.wide svg { width: 30px; }
+
+  /* ---------- Seções ---------- */
+  section { padding-top: 96px; scroll-margin-top: calc(var(--bar) - 72px); }
+  .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 32px; margin-bottom: 22px; }
+  .head h2 { font: 700 clamp(32px, 4vw, 48px)/1.05 var(--font-display); letter-spacing: -.025em; color: #fff; margin: 6px 0 0; }
+  .head p { color: var(--muted); margin: 0; max-width: 46ch; }
+
+  .sk h3 { display: flex; align-items: center; gap: 10px; font: 600 18px var(--font-display); color: #fff; margin: 0 0 18px; }
+  .badge { font: 500 11px var(--font-mono); color: var(--color-navy-950); background: var(--color-cyan-400); border-radius: 999px; padding: 2px 8px; }
+  .icons { display: flex; flex-wrap: wrap; gap: 16px 12px; }
+  .skill { width: 76px; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); text-align: center; }
+  .skill .ico { transition: transform var(--dur-base) var(--ease-spring); }
+  .skill:hover .ico { transform: translateY(-5px) scale(1.06); }
+  .ico.dev, .ico.abbr { background: var(--color-navy-900); border: 1px solid var(--line); }
+  .stds { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .stds span { font: 500 13px var(--font-mono); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--color-navy-100); transition: border-color var(--dur-quick), color var(--dur-quick); }
+  .stds span:hover { border-color: var(--color-amber-500); color: var(--color-amber-500); }
+
+  /* Experiência — cartão que cresce (Card resize) */
+  .job .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; }
+  .job h3 { font: 600 clamp(20px, 2.2vw, 24px)/1.25 var(--font-display); color: #fff; margin: 6px 0 2px; }
+  .job .org { color: var(--color-amber-500); font-weight: 600; font-size: 15px; }
+  .job .ctx { color: var(--muted); font-size: 14px; margin: 6px 0 14px; }
+  .job ul { margin: 0; padding-left: 18px; }
+  .job li { margin-bottom: 8px; } .job li::marker { color: var(--color-amber-500); }
+  .job .more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur-slow) var(--ease-out); }
+  .job .more > div { overflow: hidden; }
+  .job.open .more { grid-template-rows: 1fr; }
+  .toggle { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; min-height: 40px; cursor: pointer; font: 500 13px var(--font-mono); color: var(--color-cyan-400); transition: border-color var(--dur-quick); }
+  .toggle:hover { border-color: var(--color-cyan-400); }
+  .toggle svg { width: 14px; height: 14px; fill: currentColor; transition: transform var(--dur-base) var(--ease-out); }
+  .job.open .toggle svg { transform: rotate(180deg); }
+  .current { display: inline-flex; align-items: center; gap: 8px; font: 500 12px var(--font-mono); color: #3DDC97; }
+
+  /* Projetos — cartões com imagem real do repositório */
+  .proj { display: flex; flex-direction: column; padding: 0; }
+  .proj .shot { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--color-navy-900); }
+  .proj .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform 1.2s var(--ease-out); }
+  .proj:hover .shot img { transform: scale(1.04); }
+  .proj .body { display: flex; flex-direction: column; flex: 1; padding: 22px 24px 24px; }
+  .proj h3 { font: 600 22px/1.25 var(--font-mono); color: #fff; margin: 10px 0 8px; }
+  .proj p { color: var(--color-navy-200); font-size: 15px; margin: 0 0 18px; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags span { font: 500 12px var(--font-mono); background: var(--color-navy-800); border-radius: 999px; padding: 3px 10px; }
+  .repo { align-self: flex-start; margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; font: 600 14px var(--font-body); color: var(--color-amber-500); text-decoration: none; }
+  .repo svg { width: 16px; height: 16px; fill: currentColor; transition: transform var(--dur-base) var(--ease-out); }
+  .repo:hover svg { transform: translate(3px, -3px); }
+
+  /* Formação */
+  .seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 18px 0 20px; }
+  .seg span { height: 8px; border-radius: 4px; background: var(--color-navy-800); overflow: hidden; }
+  .seg span.on::after { content: ""; display: block; height: 100%; background: var(--color-amber-500); transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--ease-out) .2s; }
+  .in .seg span.on::after { transform: scaleX(1); }
+  .phases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
+  .ph b { color: #fff; font-weight: 600; } .ph em { font: 500 12px var(--font-mono); color: var(--color-amber-500); font-style: normal; margin-left: 8px; }
+  .ph p { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+  .list p { margin: 0 0 14px; font-size: 15px; color: var(--muted); } .list p b { display: block; color: #fff; font-weight: 600; }
+  .card h3.t { font: 600 18px var(--font-display); color: #fff; margin: 8px 0 14px; }
+
+  footer.wrap { padding-top: 80px; padding-bottom: 40px; }
+  footer .card { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+  footer a { color: var(--color-navy-100); text-decoration: none; margin-right: 18px; font-size: 15px; }
+  footer a:hover { color: var(--color-amber-500); }
+  footer small { font: 400 13px var(--font-mono); color: var(--muted); }
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width: 1000px) {
+    .c3 { grid-column: span 6; } .c4, .c5, .c6, .c7, .c8 { grid-column: span 12; }
+    .photo { min-height: 420px; }
+    .topbar nav a { padding: 7px 10px; font-size: 13px; }
+  }
+  @media (max-width: 760px) {
+    .topbar nav { display: none; }
+    .phases { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 460px) { .c3 { grid-column: span 12; } }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="assets/logos.js"></script>
+<script src="assets/content.js"></script>
+<script src="assets/motion.js"></script>
+<script>
+const M = Motion;
+const down = '<svg viewBox="0 0 24 24"><path d="M12 15.6 5.3 8.9l1.4-1.4L12 12.8l5.3-5.3 1.4 1.4z"/></svg>';
+const dl = '<svg viewBox="0 0 24 24"><path d="M11 4h2v9.2l3.3-3.3 1.4 1.4L12 17l-5.7-5.7 1.4-1.4 3.3 3.3zM5 19h14v2H5z"/></svg>';
+const code = '<svg viewBox="0 0 24 24"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6z"/></svg>';
+const ext = '<svg viewBox="0 0 24 24"><path d="M14 4h6v6h-2V7.4l-7.3 7.3-1.4-1.4L16.6 6H14zM5 6h6v2H6v10h10v-5h2v7H4V6z"/></svg>';
+const open = {};
+
+function render(c) {
+  const n = c.ui.nav, S = window.SITE.contact;
+  const all = c.skills.groups.flatMap(g => g.items);
+  const chip = it => `<span class="chip">${M.icon(it)}${it.n}</span>`;
+  document.getElementById('app').innerHTML = `
+  <header class="topbar"><div class="wrap">
+    <a class="mark" href="#top">Luiz Aguiar Neto</a>
+    <nav aria-label="Seções"><span class="pill" aria-hidden="true"></span>
+      <a href="#top" data-id="top">${n.about}</a><a href="#skills" data-id="skills">${n.skills}</a><a href="#experiencia" data-id="experiencia">${n.exp}</a><a href="#projetos" data-id="projetos">${n.projects}</a><a href="#formacao" data-id="formacao">${n.edu}</a>
+    </nav>
+    ${M.langToggle()}
+  </div></header>
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="grid">
+        <div class="card photo c4" data-reveal="scale">
+          <img src="assets/foto.jpg" alt="${c.ui.photoAlt}" width="400" height="400"><span class="glare"></span>
+          <span class="tag"><span class="dot"></span>Rio de Janeiro</span>
+        </div>
+        <div class="card intro c8" data-reveal="scale" style="--i:1">
+          <div>
+            <span class="label">${c.ui.welcome}</span>
+            <h1>${c.hero.name}</h1>
+            <div class="role" id="role">${c.hero.role}</div>
+          </div>
+          <p>${c.hero.summary}</p>
+          <div class="ctas">
+            <a class="btn btn-amber" href="#projetos">${code}${c.ui.ctaProjects}</a>
+            <a class="btn btn-ghost" href="${c.cv}" download>${dl}${c.ui.ctaCv}</a>
+          </div>
+        </div>
+        ${c.stats.map((s, i) => `<div class="card stat c3" data-reveal="scale" style="--i:${i + 2}"><b><span data-count="${s.value}" ${s.plain ? 'data-plain="1"' : ''}>${s.value}</span>${s.suffix ? `<small>${s.suffix}</small>` : ''}</b><span>${s.label}</span></div>`).join('')}
+        <div class="card now c5" data-reveal="scale" style="--i:6">
+          <span class="label">${c.ui.now}</span>
+          <ul>${c.hero.now.map(x => `<li><span class="dot"></span>${x}</li>`).join('')}</ul>
+        </div>
+        <div class="card loop c7" data-reveal="scale" style="--i:7">
+          <span class="label">stack</span>
+          <div class="rail"><div class="track">${[...all, ...all].map(chip).join('')}</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="head" data-reveal><div><span class="label">// ${n.skills}</span><h2>${c.skills.title}</h2></div><p>${c.skills.sub}</p></div>
+      <div class="grid">
+        ${c.skills.groups.map((g, i) => `<div class="card sk ${i % 2 === 0 ? 'c7' : 'c5'}" data-reveal="scale" style="--i:${i}">
+          <h3>${g.title}${g.badge ? `<span class="badge">${g.badge}</span>` : ''}</h3>
+          <div class="icons">${g.items.map(it => `<div class="skill">${M.icon(it)}${it.n}</div>`).join('')}</div>
+        </div>`).join('')}
+        <div class="card c12" data-reveal="scale"><span class="label">DNV · ASME · API · AWS</span>
+          <div class="stds">${c.skills.standards.map(x => `<span>${x}</span>`).join('')}</div></div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="head" data-reveal><div><span class="label">// ${n.exp}</span><h2>${c.experience.title}</h2></div><p>${c.experience.sub}</p></div>
+      <div class="grid">
+        ${c.experience.items.map((e, k) => `<article class="card job c12${open[k] ? ' open' : ''}" data-reveal="scale" data-k="${k}">
+          <div class="top"><span class="label">${e.when}</span>${e.current ? `<span class="current"><span class="dot"></span>${c.ui.current}</span>` : ''}</div>
+          <h3>${e.role}</h3><div class="org">${e.org}</div><div class="ctx">${e.ctx}</div>
+          <ul>${e.bullets.slice(0, 2).map(b => `<li>${b}</li>`).join('')}</ul>
+          ${e.bullets.length > 2 ? `<div class="more"><div><ul>${e.bullets.slice(2).map(b => `<li>${b}</li>`).join('')}</ul></div></div>
+          <button class="toggle" aria-expanded="${!!open[k]}">${down}<span>${open[k] ? c.ui.less : c.ui.more} (${e.bullets.length - 2})</span></button>` : ''}
+        </article>`).join('')}
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="head" data-reveal><div><span class="label">// ${n.projects}</span><h2>${c.projects.title}</h2></div><p>${c.projects.sub}</p></div>
+      <div class="grid">
+        ${c.projects.items.map((p, i) => `<article class="card proj c6" data-reveal="scale" style="--i:${i}">
+          <div class="shot"><img src="${p.img}" alt="${p.alt}" loading="lazy" width="960" height="540"></div>
+          <div class="body">
+            <span class="label">${p.lbl}</span><h3>${p.title}</h3><p>${p.desc}</p>
+            <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
+            <a class="repo" href="${p.url}" target="_blank" rel="noopener">${c.ui.repo}${ext}</a>
+          </div>
+        </article>`).join('')}
+      </div>
+    </section>
+
+    <section id="formacao">
+      <div class="head" data-reveal><div><span class="label">// ${n.edu}</span><h2>${c.education.title}</h2></div><p>${c.education.sub}</p></div>
+      <div class="grid">
+        <div class="card c8" data-reveal="scale">
+          <span class="label">${c.education.bi.meta}</span>
+          <h3 class="t">${c.education.bi.title}</h3>
+          <div class="seg" aria-label="${c.ui.progress}: 1/4">${c.education.bi.phases.map(p => `<span class="${p.done ? 'on' : ''}"></span>`).join('')}</div>
+          <div class="phases">${c.education.bi.phases.map(p => `<div class="ph"><b>${p.n} · ${p.level}</b><em>${p.status}</em><p>${p.topics}</p></div>`).join('')}</div>
+        </div>
+        <div class="card c4 list" data-reveal="scale" style="--i:1">
+          <span class="label">${c.education.title}</span>
+          <div style="margin-top:14px">${c.education.degrees.map(d => `<p><b>${d.title}</b>${d.meta}</p>`).join('')}</div>
+        </div>
+        <div class="card c6 list" data-reveal="scale"><span class="label">${c.education.certsTitle}</span>
+          <div style="margin-top:14px">${c.education.certs.map(d => `<p><b>${d.title}</b>${d.meta}</p>`).join('')}</div></div>
+        <div class="card c6 list" data-reveal="scale" style="--i:1"><span class="label">${c.education.langsTitle}</span>
+          <div style="margin-top:14px">${c.education.langs.map(([l, v]) => `<p><b>${l}</b>${v}</p>`).join('')}</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap"><div class="card">
+    <div><a href="mailto:${S.email}">${S.email}</a><a href="${S.linkedin}" target="_blank" rel="noopener">LinkedIn</a><a href="${S.github}" target="_blank" rel="noopener">GitHub</a></div>
+    <small>${c.footer}</small>
+  </div></footer>`;
+
+  M.reveal();
+  M.countUp();
+  M.decrypt(document.getElementById('role'));
+  M.spotlight('.card');
+  M.tilt('.photo', document, 8);
+  M.tilt('.proj', document, 4);
+  M.magnet('.btn');
+
+  // Cartões de experiência que crescem
+  M.$$('.job .toggle').forEach(b => b.addEventListener('click', () => {
+    const job = b.closest('.job'), k = job.dataset.k;
+    open[k] = !job.classList.contains('open');
+    job.classList.toggle('open', open[k]);
+    b.setAttribute('aria-expanded', String(open[k]));
+    b.querySelector('span').textContent = `${open[k] ? c.ui.less : c.ui.more} (${job.querySelectorAll('.more li').length})`;
+  }));
+
+  // Menu: indicador segue a seção visível
+  const nav = document.querySelector('.topbar nav');
+  const setActive = id => {
+    const a = nav.querySelector(`[data-id="${id}"]`);
+    if (!a) return;
+    nav.querySelectorAll('a').forEach(x => x.classList.toggle('active', x === a));
+    M.slidePill(nav, a);
+  };
+  M.scrollspy('main section', setActive);
+  requestAnimationFrame(() => setActive('top'));
+  onScroll();
+}
+
+const onScroll = () => document.querySelector('.topbar')?.classList.toggle('scrolled', scrollY > 8);
+addEventListener('scroll', onScroll, { passive: true });
+M.i18n(render);
+</script>
+</body>
+</html>
